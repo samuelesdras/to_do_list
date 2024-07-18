@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import Button from "../atoms/button";
-import Input from "../atoms/input";
-import TodoList from "../organisms/TodoList";
-import { useLocalStorage } from "../../hooks/useLocalStore";
+import Button from "../../atoms/button";
+import Input from "../../atoms/input";
+import TodoList from "../../organisms/TodoList";
+import { useLocalStorage } from "../../../hooks/useLocalStore";
 
 export default function TodoTemplate() {
   const [tasks, setTasks] = useLocalStorage<string[]>("tasks", []);

@@ -1,4 +1,4 @@
-import TodoItem from "../molecules/TodoItem";
+import TodoItem from "../../molecules/TodoItem";
 
 type TodoListProps = {
   tasks: string[];

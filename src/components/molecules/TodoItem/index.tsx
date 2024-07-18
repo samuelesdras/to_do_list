@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaCheck, FaTrash, FaUndo } from "react-icons/fa";
-import Input from "../atoms/input";
+import Input from "../../atoms/input";
 
 type TodoItemProps = {
   task: string;
@@ -64,7 +64,7 @@ export default function TodoItem({
         />
       ) : (
         <motion.p
-          className={`flex-1 mr-2 ${isChecked ? "line-through" : ""}`}
+          className={`flex-1 mr-2 truncate ${isChecked ? "line-through" : ""}`}
           variants={shakeAnimation}
           initial="hidden"
           animate={isShaking ? "visible" : "hidden"}
@@ -75,11 +75,11 @@ export default function TodoItem({
       )}
       <div className="flex flex-row gap-4 ml-4 items-center hover:cursor-pointer">
         {isChecked ? (
-          <FaUndo onClick={handleCheck} />
+          <FaUndo aria-label="undo" onClick={handleCheck} />
         ) : (
-          <FaCheck onClick={handleCheck} />
+          <FaCheck aria-label="check" onClick={handleCheck} />
         )}
-        <FaTrash onClick={() => onDelete(index)} />
+        <FaTrash aria-label="delete" onClick={() => onDelete(index)} />
       </div>
     </div>
   );
