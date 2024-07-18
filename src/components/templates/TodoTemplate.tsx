@@ -49,7 +49,7 @@ export default function TodoTemplate() {
           placeholder="Ex: ir para a academia as 10:00"
           label="Adicione a 1º tarefa:"
           value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
+          onChange={(e) => setNewTask((e.target as HTMLInputElement).value)}
         />
 
         <div className="flex flex-col justify-end text-white">

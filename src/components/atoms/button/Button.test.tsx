@@ -1,15 +1,16 @@
 import React from "react";
-import { expect, test } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Button from "../button";
+import { describe, it, expect } from "vitest";
 
-test("Button", () => {
-  render(<Button children={"login"} variant={"primary"} />);
-  const buttonElement = screen.getByRole("button", {
-    name: /login/i,
+describe("Button", () => {
+  it("renders on Dom", () => {
+    render(<Button children={"login"} variant={"primary"} />);
+    const buttonElement = screen.getByRole("button", {
+      name: /login/i,
+    });
+    expect(buttonElement).toBeInTheDocument();
+    expect(buttonElement).toHaveTextContent(/login/i);
+    expect(buttonElement.className).toContain("bg-cyan-700");
   });
-  expect(buttonElement).toBeTruthy();
-  console.log(buttonElement.textContent);
-  expect(buttonElement).contain(/login/i);
-  expect(buttonElement.className).toContain("bg-cyan-700");
 });

@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { FaCheck, FaTrash, FaUndo } from "react-icons/fa";
 import Input from "../atoms/input";
 
@@ -38,7 +38,7 @@ export default function TodoItem({
   };
 
   const handleCancelEdit = () => {
-    setEditedTask(task); // Revert changes
+    setEditedTask(task);
     setIsEditing(false);
   };
 
@@ -54,7 +54,7 @@ export default function TodoItem({
         <Input
           placeholder="Edite o nome da tarefa."
           value={editedTask}
-          onChange={(e) => setEditedTask(e.target.value)}
+          onChange={(e) => setEditedTask((e.target as HTMLInputElement).value)}
           onBlur={handleSaveEdit}
           onKeyDown={(e) => {
             if (e.key === "Enter") handleSaveEdit();
